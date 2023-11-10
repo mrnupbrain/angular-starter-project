@@ -25,3 +25,24 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Configure Tailwind CSS with Angular
+
+`npm install -D tailwindcss postcss autoprefixer` <br>
+`npx tailwindcss init` <br>
+`Add the paths to all of your template files in your tailwind.config.js file.`<br>
+`/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}` <br>
+`Add the @tailwind directives for each of Tailwind’s layers to your ./src/styles.css file.` <br>
+`@tailwind base;
+@tailwind components;
+@tailwind utilities;` <br>
