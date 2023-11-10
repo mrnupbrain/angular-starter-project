@@ -50,3 +50,7 @@ module.exports = {
 ## Tailwind CSS Guide
 
 `https://tailwindcss.com/docs/guides/angular` <br>
+
+To get started, install prettier-plugin-tailwindcss as a dev-dependency:
+
+`npm install -D prettier prettier-plugin-tailwindcss`
