@@ -46,3 +46,7 @@ module.exports = {
 `@tailwind base;
 @tailwind components;
 @tailwind utilities;` <br>
+
+## Tailwind CSS Guide
+
+`https://tailwindcss.com/docs/guides/angular` <br>
