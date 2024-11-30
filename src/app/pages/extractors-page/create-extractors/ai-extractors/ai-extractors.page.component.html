@@ -1,0 +1,132 @@
+<div class="ap-mt-10ap ap-rounded-lg ap-border ap-border-gray-300">
+  <div
+    class="ap-bg-gray-50 ap-p-[26px] ap-flex ap-items-center ap-justify-between ap-cursor-pointer"
+    (click)="toggleDropdown(2)"
+  >
+    <div
+      class="ap-Radio ap-h-6 ap-justify-start ap-items-center ap-gap-3 ap-inline-flex"
+    >
+      <div
+        class="ap-w-5 ap-h-5 ap-border ap-border-blue-600 ap-rounded-full ap-relative"
+      >
+        <img src="assets/img/custom/extractors/Radio.svg" alt="" />
+      </div>
+      <div
+        class="ap-Label ap-text-slate-700 ap-text-base ap-font-semibold ap-font-['Inter'] ap-leading-snug"
+      >
+      AI Models
+      </div>
+    </div>
+
+    <!-- Button with chevron icon -->
+    <button (click)="toggleDropdown(2)" class="ap-cursor-pointer">
+      <img 
+        [src]="dropdownStates[2] ? 'assets/img/custom/extractors/chevron-down.svg' : 'assets/img/custom/extractors/chevron-up.svg'" 
+        alt="" 
+        [ngClass]="{ 'ap-rotate-180': dropdownStates[2] }" 
+        class="transition-transform duration-300"
+      />
+    </button>
+  </div>
+
+  <!-- Dropdown content -->
+  <div
+    class="ap-p-[26px] ap-flex ap-flex-col ap-gap-6"
+    *ngIf="dropdownStates[2]"
+  >
+    <!-- Key List Header -->
+    <div class="ap-flex ap-items-center ap-justify-between">
+      <div
+        class="ap-Label ap-text-black ap-text-lg ap-font-semibold ap-font-['Inter'] ap-leading-7"
+      >
+        Key List
+      </div>
+      <div class="ap-flex">
+        <div
+          class="ap-Text ap-text-blue-700 ap-text-sm ap-font-semibold ap-font-['Inter'] ap-leading-tight"
+        >
+          +
+        </div>
+        <div
+          class="ap-Text ap-text-blue-700 ap-text-sm ap-font-semibold ap-font-['Inter'] ap-leading-tight"
+        >
+        Model List
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Content -->
+    <div class="ap-relative ap-overflow-x-auto ap-shadow-md ap-sm:rounded-lg">
+      <table
+        class="ap-w-full ap-text-sm ap-text-left ap-rtl:text-right ap-text-gray-500 ap-dark:text-gray-400"
+      >
+        <thead
+          class="ap-text-xs ap-text-gray-700 ap-uppercase ap-bg-gray-50 ap-dark:bg-gray-700 ap-dark:text-gray-400"
+        >
+          <tr>
+            <th scope="col" class="ap-px-6 ap-py-3">AI Model Name</th>
+            <th scope="col" class="ap-px-6 ap-py-3">ID / Version</th>
+            <th scope="col" class="ap-px-6 ap-py-3">Agent Name</th>
+            <th scope="col" class="ap-px-6 ap-py-3">Last updated</th>
+            <th scope="col" class="ap-px-6 ap-py-3">Agent Name</th>
+            <th scope="col" class="ap-px-6 ap-py-3">Status</th>
+            <th scope="col" class="ap-px-6 ap-py-3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <td  class="ap-px-6 ap-py-3">Default Upbrains</td>
+          <td  class="ap-px-6 ap-py-3">V 1.0</td>
+          <td  class="ap-px-6 ap-py-3">N / A</td>
+          <td  class="ap-px-6 ap-py-3">N / A</td>
+          <td  class="ap-px-6 ap-py-3">N / A</td>
+          <td  class="ap-px-6 ap-py-3">N / A</td>
+          <td  class="ap-px-6 ap-py-3">
+            <div class="ap-MoreVertical ap-relative">
+              <button
+                (click)="toggleDropdownai()"
+                id="ap-dropdownDefaultButton"
+                class="ap-text-black ap-font-medium ap-rounded-lg ap-text-sm ap-px-5 ap-py-2.5 ap-text-center ap-inline-flex ap-items-center"
+                type="button"
+              >
+                <img src="assets/img/custom/extractors/vertical.svg" alt="" />
+              </button>
+
+              <!-- Dropdown menu -->
+              <div
+                *ngIf="dropdownOpen"
+                id="ap-dropdown"
+                class="ap-z-10 ap-absolute ap-bg-white ap-divide-y ap-divide-gray-100 ap-rounded-lg ap-shadow ap-w-55 ap-dark:bg-gray-700 ap-left-[-70px] "
+              >
+                <ul
+                  class="ap-py-2 ap-text-sm ap-text-gray-700 ap-dark:text-gray-200"
+                  aria-labelledby="ap-dropdownDefaultButton"
+                >
+                <li class="ap-flex ap-items-center ap-px-4 ap-gap-3 ap-my-2">
+                  <span class="ap-flex">
+                    <img
+                      src="assets/img/custom/extractors/electricity.svg"
+                      alt=""
+                    />
+                  </span>
+                  <span href="" class="ap-block">Activate </span>
+                </li>
+                  <li class="ap-flex ap-items-center ap-px-4 ap-gap-3 ap-my-2">
+                    <span class="ap-flex">
+                      <img
+                        src="assets/img/custom/extractors/trash.svg"
+                        alt=""
+                      />
+                    </span>
+                    <span href="" class="ap-block">Delete </span>
+                  </li>
+                </ul>
+              </div>
+            </div>  
+        </td>
+         
+          <!-- Repeat similar changes for other rows -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

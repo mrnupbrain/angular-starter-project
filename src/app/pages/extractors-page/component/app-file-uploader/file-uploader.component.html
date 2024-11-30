@@ -1,0 +1,39 @@
+<div
+  class="ap-bg-white ap-flex ap-h-60 ap-flex-col ap-items-center ap-justify-center ap-gap-8 ap-self-stretch ap-rounded-xl ap-p-6"
+>
+  <div
+    class="ap-bg-white ap-flex ap-h-48 ap-flex-col ap-items-center ap-justify-start ap-gap-1 ap-rounded-2xl"
+    (dragover)="onDragOver($event)"
+    (drop)="onFileDrop($event)"
+  >
+    <div
+      class="ap-border-neutral-300 ap-flex ap-h-48 ap-w-[348px] ap-flex-col ap-items-center ap-justify-start ap-gap-4 ap-self-stretch ap-rounded-lg ap-border ap-px-1.5 ap-py-6"
+    >
+      <div class="ap-relative ap-h-10 ap-w-10"></div>
+      <div
+        class="ap-text-neutral-500 ap-font-['Yekan Bakh'] ap-text-center ap-text-xs ap-font-bold"
+      >
+        Upload your flow file, drag and drop here<br />or select from below
+        button
+      </div>
+      <div
+        class="ap-border-neutral-300 ap-inline-flex ap-items-center ap-justify-center ap-gap-2.5 ap-rounded-lg ap-border ap-px-6 ap-py-2"
+      >
+        <label class="cursor-pointer" (click)="input.click()">
+          <div
+            class="ap-text-neutral-500 ap-font-['Yekan Bakh'] ap-text-right ap-text-xs ap-font-bold"
+          >
+            Browse File
+          </div>
+        </label>
+
+        <input
+          type="file"
+          #input
+          class="file-upload-input d-none"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+    </div>
+  </div>
+</div>

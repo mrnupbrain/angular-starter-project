@@ -1,14 +1,8 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
   ],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  prefix: 'ap-',  // Add prefix here
   theme: {
     screens: {
       sm: '480px',
@@ -40,6 +34,8 @@ module.exports = {
         '4xl': '2rem',
       }
     }
-  }
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
-

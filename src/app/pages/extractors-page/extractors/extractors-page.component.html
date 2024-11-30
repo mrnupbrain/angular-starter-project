@@ -1,0 +1,287 @@
+<section class="ap-my-10 ap-px-8">
+  <div class="ap-flex ap-flex-col">
+    <div class="ap-flex ap-items-center ap-justify-between">
+      <div
+        class="ap-text-gray-900 ap-font-['Inter'] ap-text-3xl ap-font-semibold ap-leading-9"
+      >
+        Extractors
+      </div>
+      <div class="ap-bg-blue-700 ap-flex ap-items-center ap-rounded-lg ap-px-4">
+        <div class="">
+          <img src="assets/img/custom/extractors/plus.svg" />
+        </div>
+        <div class="">
+          <button
+            routerLink="create"
+            class="ap-text-white ap-bg-blue-700 ap-hover:bg-blue-800 ap-focus:ring-4 ap-focus:outline-none ap-focus:ring-blue-300 ap-dark:bg-blue-600 ap-dark:hover:bg-blue-700 ap-dark:focus:ring-blue-800 ap-block ap-rounded-lg ap-px-2 ap-py-2.5 ap-text-center ap-text-sm ap-font-medium"
+            type="button"
+          >
+            Custom Extractor
+          </button>
+        </div>
+      </div>
+      <!-- Main modal -->
+      <div
+        *ngIf="isModalOpen"
+        id="default-modal"
+        tabindex="-1"
+        aria-hidden="true"
+        class="ap-md:inset-0 ap-fixed ap-left-0 ap-right-0 ap-top-0 ap-z-50 ap-h-[calc(100%-1rem)] ap-max-h-full ap-w-full ap-items-center ap-justify-center ap-overflow-y-auto ap-overflow-x-hidden ap-backdrop-blur-md"
+      >
+        <div
+          class="ap-relative ap-left-[500px] ap-top-[200px] ap-max-h-full ap-w-full ap-max-w-2xl ap-p-4"
+        >
+          <!-- Modal content -->
+          <div
+            class="ap-bg-white ap-dark:bg-gray-700 ap-relative ap-rounded-lg ap-shadow"
+          >
+            <!-- Modal body -->
+            <div class="ap-flex ap-flex-col">
+              <div class="ap-mt-6">
+                <div
+                  class="ap-Text ap-text-gray-900 ap-text-center ap-font-['Inter'] ap-text-lg ap-font-semibold ap-leading-7"
+                >
+                  Customize extractor
+                </div>
+                <div
+                  class="ap-SupportingText ap-text-slate-600 ap-mt-2 ap-text-center ap-font-['Inter'] ap-text-sm ap-font-normal ap-leading-tight"
+                >
+                  Change the values below for your needs
+                </div>
+              </div>
+              <div class="ap-my-8 ap-px-20">
+                <span
+                  class="ap-Label ap-text-slate-700 ap-font-['Inter'] ap-text-sm ap-font-medium ap-leading-tight"
+                  >Extractor Title</span
+                >
+                <div
+                  class="ap-border-gray-300 ap-h-11 ap-rounded-xl ap-border ap-px-3.5 ap-py-2.5"
+                >
+                  <input
+                    type="text"
+                    placeholder="My Invoice Extractor"
+                    class="ap-outline-none"
+                  />
+                </div>
+                <div class="ap-mt-8">
+                  <span
+                    class="ap-Label ap-text-slate-700 ap-font-['Inter'] ap-text-sm ap-font-medium ap-leading-tight"
+                    >Page range (optional)</span
+                  >
+                  <div
+                    class="ap-border-gray-300 ap-h-11 ap-rounded-xl ap-border ap-px-3.5 ap-py-2.5"
+                  >
+                    <input
+                      type="text"
+                      placeholder="e.g., 1, 3-4, ..."
+                      class="ap-outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- Modal footer -->
+              <div
+                (click)="closeModal()"
+                class="ap-mb-6 ap-flex ap-cursor-pointer ap-items-center ap-gap-3 ap-px-20"
+              >
+                <div
+                  class="ap-ButtonBase ap-bg-white ap-border-gray-300 ap-inline-flex ap-h-11 ap-w-full ap-items-center ap-justify-center ap-gap-2 ap-rounded-lg ap-border ap-px-4 ap-py-2.5 ap-shadow"
+                >
+                  <div
+                    class="ap-Text ap-text-slate-700 ap-font-['Inter'] ap-text-base ap-font-semibold ap-leading-normal"
+                  >
+                    Cancel
+                  </div>
+                </div>
+                <div
+                  (click)="acceptTerms()"
+                  class="ap-ButtonBase ap-bg-blue-600 ap-border-blue-600 ap-inline-flex ap-h-11 ap-w-full ap-items-center ap-justify-center ap-gap-2 ap-rounded-lg ap-border ap-px-4 ap-py-2.5 ap-shadow"
+                >
+                  <div
+                    class="ap-Text ap-text-white ap-font-['Inter'] ap-text-base ap-font-semibold ap-leading-normal"
+                  >
+                    Add
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="SupportingText text-slate-600 text-base font-normal font-['Inter'] leading-normal"
+    >
+      You can use an extractor in an automation flow or use it as a tool in a
+      conversational agent
+    </div>
+  </div>
+  <div class="ap-mt-10 ap-flex ap-justify-between">
+    <div class="ap-flex ap-items-center">
+      <div
+        class="ap-TabButtonBase ap-bg-sky-50 ap-inline-flex ap-h-11 ap-items-center ap-justify-center ap-gap-2 ap-rounded-md ap-px-3.5 ap-py-2.5"
+      >
+        <div
+          class="ap-Text ap-text-blue-700 ap-font-['Inter'] ap-text-base ap-font-semibold ap-leading-normal"
+        >
+          Prebuilt extractors
+        </div>
+      </div>
+      <div
+        class="ap-TabButtonBase ap-inline-flex ap-h-11 ap-items-center ap-justify-center ap-gap-2 ap-rounded-md ap-px-3.5 ap-py-2.5"
+      >
+        <div
+          class="ap-Text ap-text-gray-500 ap-font-['Inter'] ap-text-base ap-font-semibold ap-leading-normal"
+        >
+          My Extractors
+        </div>
+      </div>
+    </div>
+    <div class="ap-flex ap-items-center">
+      <div
+        class="ap-Button ap-inline-flex ap-h-11 ap-items-start ap-justify-start ap-gap-2 ap-rounded-lg"
+      >
+        <div
+          class="ap-border-gray-300 ap-flex ap-h-11 ap-items-center ap-gap-1 ap-rounded-lg ap-border ap-px-3 ap-shadow"
+        >
+          <img src="assets/img/custom/extractors/search.svg" alt="" />
+          <input class="ap-px-2 ap-outline-none" placeholder="Search" />
+        </div>
+        <div
+          class="ap-ButtonBase ap-bg-white ap-border-gray-300 ap-flex ap-items-center ap-justify-center ap-gap-2 ap-self-stretch ap-rounded-lg ap-border ap-px-4 ap-py-2.5 ap-shadow"
+        >
+          <div class="ap-FiltersLines ap-relative ap-h-5 ap-w-5">
+            <img src="assets/img/custom/extractors/Filter.svg" alt="" />
+          </div>
+          <div
+            class="ap-Text ap-text-slate-700 ap-font-['Inter'] ap-text-sm ap-font-semibold ap-leading-tight"
+          >
+            More filters
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ap-mt-6">
+    <div
+      class="ap-Frame1427 ap-bg-gray-50 ap-border-violet-200 ap-inline-flex ap-h-64 ap-w-80 ap-flex-col ap-items-start ap-justify-start ap-gap-10 ap-rounded-2xl ap-border ap-p-6"
+    >
+      <div
+        class="ap-Frame1429 ap-flex ap-h-36 ap-flex-col ap-items-start ap-justify-start ap-gap-6 ap-self-stretch"
+      >
+        <div
+          class="ap-Frame1426 ap-inline-flex ap-items-center ap-justify-between ap-self-stretch"
+        >
+          <div class="ap-Receipt ap-relative ap-h-10 ap-w-10">
+            <div
+              class="ap-VuesaxBoldReceipt ap-absolute ap-left-[8.25px] ap-top-[8px] ap-h-6 ap-w-6"
+            >
+              <div class="ap-Receipt ap-absolute">
+                <img src="assets/img/custom/extractors/receipt.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div
+            class="ap-Dropdown ap-inline-flex ap-flex-col ap-items-start ap-justify-start"
+          >
+            <div class="ap-MoreVertical ap-relative">
+              <button
+                (click)="toggleDropdown()"
+                id="ap-dropdownDefaultButton"
+                class="ap-text-black ap-inline-flex ap-items-center ap-rounded-lg ap-px-5 ap-py-2.5 ap-text-center ap-text-sm ap-font-medium"
+                type="button"
+              >
+                <img src="assets/img/custom/extractors/vertical.svg" alt="" />
+              </button>
+
+              <!-- Dropdown menu -->
+              <div
+                *ngIf="dropdownOpen"
+                id="ap-dropdown"
+                class="ap-bg-white ap-divide-gray-100 ap-w-55 ap-dark:bg-gray-700 top-[30px] ap-absolute ap-left-[-140px] ap-z-10 ap-divide-y ap-rounded-lg ap-shadow"
+              >
+                <ul
+                  class="ap-text-gray-700 ap-dark:text-gray-200 ap-py-2 ap-text-sm"
+                  aria-labelledby="ap-dropdownDefaultButton"
+                >
+                  <li class="ap-my-2 ap-flex ap-items-center ap-gap-3 ap-px-4">
+                    <span class="ap-flex">
+                      <img src="assets/img/custom/extractors/Edit.svg" alt="" />
+                    </span>
+                    <span href="" class="ap-block">Edit </span>
+                  </li>
+                  <li class="ap-my-2 ap-flex ap-items-center ap-gap-3 ap-px-4">
+                    <span class="ap-flex">
+                      <img src="assets/img/custom/extractors/eye.svg" alt="" />
+                    </span>
+                    <span href="" class="ap-block">View </span>
+                  </li>
+                  <li class="ap-my-2 ap-flex ap-items-center ap-gap-3 ap-px-4">
+                    <span class="ap-flex">
+                      <img
+                        src="assets/img/custom/extractors/document.svg"
+                        alt=""
+                      />
+                    </span>
+                    <span href="" class="ap-block">Create a draft copy </span>
+                  </li>
+                  <li class="ap-my-2 ap-flex ap-items-center ap-gap-3 ap-px-4">
+                    <span class="ap-flex">
+                      <img
+                        src="assets/img/custom/extractors/trash.svg"
+                        alt=""
+                      />
+                    </span>
+                    <span href="" class="ap-block">Delete </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ap-TextAndSupportingText ap-flex ap-h-20 ap-flex-col ap-items-start ap-justify-start ap-gap-2 ap-self-stretch"
+        >
+          <div
+            class="ap-Frame1272628273 ap-inline-flex ap-items-center ap-justify-start ap-gap-2 ap-self-stretch"
+          >
+            <div
+              class="ap-Text ap-text-slate-600 ap-font-['Inter'] ap-text-xl ap-font-semibold ap-leading-loose"
+            >
+              Invoice Extractor
+            </div>
+            <div
+              class="ap-BadgeBase ap-bg-emerald-50 ap-flex ap-items-center ap-justify-center ap-gap-1.5 ap-rounded-2xl ap-py-0.5 ap-pl-1.5 ap-pr-2"
+            >
+              <div
+                class="ap-Text ap-text-emerald-700 ap-text-center ap-font-['Inter'] ap-text-xs ap-font-medium ap-leading-none"
+              >
+                Published
+              </div>
+            </div>
+          </div>
+          <div
+            class="ap-SupportingText ap-text-gray-500 ap-self-stretch ap-font-['Inter'] ap-text-sm ap-font-normal ap-leading-tight"
+          >
+            Extract invoice ID, customer details, vendor details, ship to, bill
+            to, total tax, subtotal, line items and more.
+          </div>
+        </div>
+      </div>
+      <div class="ap-Button ap-inline-flex ap-items-start ap-justify-start">
+        <div
+          class="ap-ButtonBase ap-flex ap-items-center ap-justify-center ap-gap-2"
+        >
+          <div
+            class="ap-Text ap-text-blue-600 ap-font-['Inter'] ap-text-sm ap-font-semibold ap-leading-tight"
+          >
+            View
+          </div>
+          <div class="ap-ChevronRight ap-relative ap-h-5 ap-w-5">
+            <img src="assets/img/custom/extractors/chevron.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+<div class="ap-mt-10ap ap-border-gray-300 ap-rounded-lg ap-border">
+  <div
+    class="ap-bg-gray-50 ap-flex ap-cursor-pointer ap-items-center ap-justify-between ap-p-[26px]"
+    (click)="toggleDropdown(1)"
+  >
+    <div
+      class="ap-Radio ap-inline-flex ap-h-6 ap-items-center ap-justify-start ap-gap-3"
+    >
+      <div
+        class="ap-border-blue-600 ap-relative ap-h-5 ap-w-5 ap-rounded-full ap-border"
+      >
+        <img src="assets/img/custom/extractors/Radio.svg" alt="" />
+      </div>
+      <div
+        class="ap-Label ap-text-slate-700 ap-font-['Inter'] ap-text-base ap-font-semibold ap-leading-snug"
+      >
+        Sample Files
+      </div>
+    </div>
+
+    <button class="ap-cursor-pointer">
+      <img src="assets/img/custom/extractors/chevron-down.svg" alt="" />
+    </button>
+  </div>
+  <div class="ap-flex ap-flex-col ap-p-[26px]" *ngIf="dropdownStates[1]">
+    <app-file-uploader
+      (fileUploaded)="fileUploaded($event)"
+    ></app-file-uploader>
+    <app-attachment [attachments]="attachmentsWriting_task1"></app-attachment>
+  </div>
+</div>

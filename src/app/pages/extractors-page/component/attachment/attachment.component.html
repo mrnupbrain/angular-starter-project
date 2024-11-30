@@ -1,0 +1,43 @@
+<ul class="ap-space-y-4">
+  <li
+    class="ap-bg-white ap-flex ap-h-[90px] ap-w-[400px] ap-flex-col ap-justify-between ap-rounded-lg ap-p-4 ap-shadow-md"
+    *ngFor="let item of _attachments; let i = index"
+  >
+    <div class="ap-flex ap-items-center ap-justify-between">
+      <div class="ap-flex ap-items-center ap-gap-4">
+        <span class="ap-text-3xl ap-text-blue">
+          <i class="fa fa-file"></i>
+        </span>
+        <div>
+          <span
+            class="ap-block ap-truncate ap-text-sm ap-font-semibold ap-text-gray-dark"
+            [attr.title]="item.title"
+          >
+            {{ item.title }}
+          </span>
+          <span class="ap-block ap-text-xs ap-text-gray">
+            {{ item?.file?.size }} KB
+          </span>
+        </div>
+      </div>
+
+      <button
+        class="ap-hover:text-red-500 ap-p-1 ap-text-xl ap-text-gray"
+        (click)="removeAttachmentClickHandler(item)"
+      >
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+
+    <div
+      class="ap-relative ap-mt-2 ap-h-2 ap-w-full ap-overflow-hidden ap-rounded-full ap-bg-gray-light"
+    >
+      <div
+        *ngIf="item.type === 'file'"
+        class="ap-absolute ap-left-0 ap-top-0 ap-h-full ap-bg-blue ap-transition-all"
+        [ngClass]="{ 'ap-opacity-0': item.progress >= 100 }"
+        [style.width]="item.progress + '%'"
+      ></div>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,68 @@
+<section
+  class="ap-flex ap-h-[calc(100vh-60px)] ap-flex-col ap-justify-between ap-overflow-y-auto ap-px-8"
+>
+  <div class="ap-my-6">
+    <div class="Text">
+      <div class="ap-text-xl ap-font-semibold ap-leading-9">
+        Custom Extractor
+      </div>
+    </div>
+    <div class="Body ap-mt-10 ap-flex ap-flex-col ap-gap-2">
+      <form
+        #extractorsForm="ngForm"
+        [formGroup]="formGroup"
+        (ngSubmit)="submitHandler()"
+      >
+        <app-description-extractors
+          [formGroup]="formGroup.controls['descriptionExtractors']"
+        >
+        </app-description-extractors>
+
+        <app-samplefiles-extractors> </app-samplefiles-extractors>
+        <!-- <app-definekey-extractors />
+        <app-ai-extractors />  -->
+      </form>
+    </div>
+  </div>
+  <!--Footer  -->
+  <div
+    class="Down ap-border-gray-300 ap-bg-white ap-sticky ap-bottom-0 ap-left-0 ap-right-0 ap-z-10 ap-mt-10 ap-flex ap-items-center ap-justify-between ap-rounded-xl ap-border ap-px-8 ap-py-5 ap-shadow-xl"
+  >
+    <div class="ap-flex ap-items-start ap-gap-2">
+      <div
+        class="ap-border-blue-600 ap-relative ap-h-5 ap-w-5 ap-rounded-full ap-border"
+      >
+        <img src="assets/img/custom/extractors/check.svg" alt="" />
+      </div>
+      <div
+        class="ap-SavedJustNow ap-text-slate-600 ap-font-['Inter'] ap-text-base ap-font-normal ap-leading-snug"
+      >
+        Saved just now
+      </div>
+    </div>
+    <div
+      class="ap-Frame16 ap-inline-flex ap-h-10 ap-items-center ap-justify-start ap-gap-6"
+    >
+      <button
+        class="ap-Cancel ap-text-slate-900 ap-font-['Inter'] ap-text-base ap-font-semibold ap-leading-snug"
+      >
+        Cancel
+      </button>
+      <div class="ap-Actions ap-flex ap-items-center ap-justify-start ap-gap-3">
+        <button
+          class="ap-Button ap-flex ap-items-start ap-justify-start ap-rounded-lg"
+        >
+          <div
+            class="ap-ButtonBase ap-bg-blue-600 ap-border-sky-200 ap-flex ap-items-center ap-justify-center ap-gap-2 ap-rounded-lg ap-border ap-px-4 ap-py-2.5 ap-shadow"
+          >
+            <div
+              class="ap-Text ap-text-white ap-font-['Inter'] ap-text-sm ap-font-semibold ap-leading-tight"
+            >
+              Continue
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

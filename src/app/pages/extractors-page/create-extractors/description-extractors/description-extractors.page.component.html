@@ -1,0 +1,144 @@
+<div class="ap-mt-10ap ap-border-gray-300 ap-rounded-lg ap-border">
+  validForm:{{ formGroup.valid }}
+  <div
+    class="ap-bg-gray-50 ap-flex ap-cursor-pointer ap-items-center ap-justify-between ap-p-[26px]"
+    (click)="toggleDropdown(0)"
+  >
+    <div
+      class="ap-Radio ap-inline-flex ap-h-6 ap-items-center ap-justify-start ap-gap-3"
+    >
+      <div
+        class="ap-border-blue-600 ap-relative ap-h-5 ap-w-5 ap-rounded-full ap-border"
+      >
+        <img src="assets/img/custom/extractors/Radio.svg" alt="" />
+      </div>
+      <div
+        class="ap-Label ap-text-slate-700 ap-font-['Inter'] ap-text-base ap-font-semibold ap-leading-snug"
+      >
+        Description
+      </div>
+    </div>
+
+    <img
+      [src]="
+        dropdownStates[0]
+          ? 'assets/img/custom/extractors/chevron-down.svg'
+          : 'assets/img/custom/extractors/chevron-up.svg'
+      "
+      alt=""
+      [ngClass]="{ 'ap-rotate-360': dropdownStates[0] }"
+      class="transition-transform duration-300"
+    />
+  </div>
+
+  <form [formGroup]="formGroup">
+    <div class="ap-flex ap-gap-6 ap-p-[26px]" *ngIf="dropdownStates[0]">
+      <div
+        class="ap-border-gray-500 ap-relative ap-h-28 ap-w-28 ap-rounded-full ap-border"
+      >
+        <button
+          class="ap-absolute ap-inset-0 ap-flex ap-items-center ap-justify-center"
+          (click)="input.click()"
+        >
+          <input
+            #input
+            type="file"
+            formControlName="file"
+            [ngClass]="{
+              'ap-border-gray-300': formGroup.get('file')?.valid,
+              'ap-border-red-500':
+                formGroup.get('file')?.invalid && formGroup.get('file')?.touched
+            }"
+            class="file-upload-input d-none"
+            accept="image/*"
+            (change)="selectFiles($event)"
+          />
+          <label for="input" class="position-relative">
+            <img
+              src="assets/img/custom/extractors/landscape.svg"
+              alt=""
+              class="logo-user w-100 h-100 ap-rounded-full"
+            />
+          </label>
+        </button>
+        <div
+          *ngIf="
+            formGroup.get('file')?.invalid && formGroup.get('file')?.touched
+          "
+          class="ap-text-red-500 ap-text-sm"
+        >
+          File is required
+        </div>
+      </div>
+
+      <div class="ap-flex ap-flex-col">
+        <div class="ap-flex ap-gap-6">
+          <div class="ap-flex ap-flex-col">
+            <span
+              class="ap-Label ap-text-slate-700 ap-font-['Inter'] ap-text-sm ap-font-medium ap-leading-tight"
+              >Name
+            </span>
+            <input
+              formControlName="name"
+              [ngClass]="{
+                'ap-border-gray-300': formGroup.get('name')?.valid,
+                'ap-border-red-500':
+                  formGroup.get('name')?.invalid &&
+                  formGroup.get('name')?.touched
+              }"
+              class="ap-Input ap-mt-1 ap-h-12 ap-w-[468px] ap-rounded-lg ap-border ap-px-4 ap-py-3 ap-shadow ap-outline-none"
+              type="text"
+              placeholder="Extractor Name"
+            />
+            <div
+              *ngIf="
+                formGroup.get('name')?.invalid && formGroup.get('name')?.touched
+              "
+              class="ap-text-red-500 ap-text-sm"
+            >
+              Name is required
+            </div>
+          </div>
+
+          <div class="ap-flex ap-flex-col">
+            <span
+              class="ap-Label ap-text-slate-700 ap-font-['Inter'] ap-text-sm ap-font-medium ap-leading-tight"
+              >Document Class</span
+            >
+            <input
+              formControlName="documentClass"
+              [ngClass]="{
+                'ap-border-gray-300': formGroup.get('documentClass')?.valid,
+                'ap-border-red-500':
+                  formGroup.get('documentClass')?.invalid &&
+                  formGroup.get('documentClass')?.touched
+              }"
+              class="ap-Input ap-mt-1 ap-h-12 ap-w-[468px] ap-rounded-lg ap-border ap-px-4 ap-py-3 ap-shadow ap-outline-none"
+              type="text"
+              placeholder="Text"
+            />
+            <div
+              *ngIf="
+                formGroup.get('documentClass')?.invalid &&
+                formGroup.get('documentClass')?.touched
+              "
+              class="ap-text-red-500 ap-text-sm"
+            >
+              Document Class is required
+            </div>
+          </div>
+        </div>
+        <div class="ap-mt-6 ap-flex ap-flex-col">
+          <span
+            class="ap-Label ap-text-slate-700 ap-font-['Inter'] ap-text-sm ap-font-medium ap-leading-tight"
+            >Description</span
+          >
+          <textarea
+            formControlName="description"
+            class="ap-border-gray-300 ap-mt-1 ap-h-32 ap-rounded-lg ap-border ap-px-4 ap-pt-2 ap-shadow ap-outline-none"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
